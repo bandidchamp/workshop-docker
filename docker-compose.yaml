@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  backend-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: backend-api:latest
+    container_name: backend-api
+    environment:
+      - PORT=3001
+    volumes:
+      - ./:/app
+    ports:
+      - 3001:3001
+    networks:
+      - app-network
+    restart: always
+
+  fontend-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: fontend-app:latest
+    container_name: fontend-app
+    ports:
+      - 80:80
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  backend-api:
