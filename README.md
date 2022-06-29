@@ -30,3 +30,14 @@ docker images
 
 ## - list container
 docker ps -a
+
+
+## docker-compose
+## - run container
+docker-compose up -d
+
+## - rebuild
+docker-compose up -d --build
+
+## - down container 
+docker-compose down 
