@@ -41,3 +41,21 @@ docker-compose up -d --build
 
 ## - down container 
 docker-compose down 
+
+## deploy google cloud run [backend app]
+1. run cmd: gcloud init
+2. set gcloud project
+3. run cmd: cd backend-app
+4. run cmd: gcloud builds submit --tag asia.gcr.io/mpk-covid/workshop-docker-backend
+5. setup cloud run 
+
+
+## deploy google cloud run [frontend app]
+1. run cmd: gcloud init
+2. set gcloud project
+3. run cmd: cd frontend-app
+4. run cmd: gcloud builds submit --tag asia.gcr.io/mpk-covid/workshop-docker-frontend
+5. setup cloud run 
+
+container image url:
+asia.gcr.io/mpk-covid/workshop-docker-backend@sha256:0be12229294ee6dd8c93ad9ff28630d87c5e5dea30917d50f2265779078f6e41 -> asia.gcr.io/mpk-covid/workshop-docker-backend:latest

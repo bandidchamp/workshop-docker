@@ -24,7 +24,7 @@ services:
     image: fontend-app:latest
     container_name: fontend-app
     ports:
-      - 80:80
+      - 8080:8080
     networks:
       - app-network
     restart: always

@@ -1,0 +1,21 @@
+FROM node:14-alpine as builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install --production
+
+RUN npm run build
+
+RUN rm -rf ./node_modules
+
+FROM nginx:1.21.6-alpine
+
+RUN rm -rf /etc/nginx/conf.d
+
+WORKDIR /usr/share/nginx/html
+COPY --from=builder /app/build .
+COPY --from=builder /app/config/nginx /etc/nginx
+
+CMD ["nginx", "-g", "daemon off;"]
