@@ -72,10 +72,13 @@ gcloud builds submit --tag asia.gcr.io/training-355603/workshop-frontend-app-cha
 
 :: local build images
 :: cmd docker build
+
 docker build -t asia.gcr.io/training-355603/workshop-backend-app-docker-champ .
 
 :: cmd docker push images
+
 docker push asia.gcr.io/training-355603/workshop-backend-app-docker-champ
 
 ถ้า push ไม่ได้ให้รันคำสั่งนี้
+
 gcloud auth configure-docker
