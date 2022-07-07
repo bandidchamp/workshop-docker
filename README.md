@@ -59,3 +59,23 @@ docker-compose down
 
 container image url:
 asia.gcr.io/mpk-covid/workshop-docker-backend@sha256:0be12229294ee6dd8c93ad9ff28630d87c5e5dea30917d50f2265779078f6e41 -> asia.gcr.io/mpk-covid/workshop-docker-backend:latest
+
+:: server build images
+gcloud init
+
+:: cmd - deploy backend-app
+gcloud builds submit --tag asia.gcr.io/training-355603/workshop-backend-app-champ
+
+:: cmd - deploy frontend-app
+gcloud builds submit --tag asia.gcr.io/training-355603/workshop-frontend-app-champ
+
+
+:: local build images
+:: cmd docker build
+docker build -t asia.gcr.io/training-355603/workshop-backend-app-docker-champ .
+
+:: cmd docker push images
+docker push asia.gcr.io/training-355603/workshop-backend-app-docker-champ
+
+ถ้า push ไม่ได้ให้รันคำสั่งนี้
+gcloud auth configure-docker
