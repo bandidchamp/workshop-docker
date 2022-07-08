@@ -82,5 +82,3 @@ docker push asia.gcr.io/training-355603/workshop-backend-app-docker-champ
 ถ้า push ไม่ได้ให้รันคำสั่งนี้
 
 gcloud auth configure-docker
-
-git cli test :: hello
